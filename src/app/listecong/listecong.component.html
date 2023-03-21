@@ -1,0 +1,46 @@
+<div class="container-fluid page">
+    <div class="d-flex page__box p-3 mt-2">Liste des congés</div>
+    <div class="page__content shadow p-3 position-relative">
+      <div class="example-container mat-elevation-z8">
+        <table class="table" >
+          <thead>
+              <tr>
+                  <th></th>
+                  <th scope="col">nom d'emp </th>
+                  <th scope="col">date de demande de congé</th>
+                
+                  <th scope="col">type </th>
+                  
+                  <th scope="col">reponse </th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let conge of conges" >
+              
+                  <th scope="row"></th>
+                  <td >{{ conge.nameemp}}  {{ conge.lastnameemp}}</td>
+                  <td>{{  conge.datedemandecong| date: "dd MMMM yyyy" }}</td>
+                
+                  <td>{{ conge.nametype }}</td>
+                
+                  <td>{{ conge.namereponse }}</td>
+                  <td ><button mat-raised-button #btn1    (click)="toggle(conge)"  (click)="openDialog()"  id="btn1" type="submit" class="btn btn-info">Consulter</button></td>
+                  <td><button type="submit" class="btn btn-success ">
+                    Modifier
+                  </button></td>
+                  <td><button  (click)="toggle(conge)"  (click)="openDialogdel() "  type="submit" class="btn btn-danger text-white">
+                    Supprimer
+                  </button></td>
+              </tr>
+          </tbody>
+      </table>
+        <mat-paginator  #paginator
+                       [length]="conges.length"
+                       [pageSize]="10"
+                       [pageSizeOptions]="[5, 10, 20]"
+                       [showFirstLastButtons]="true">
+        </mat-paginator>
+      </div>
+    </div>
+  </div>
+  

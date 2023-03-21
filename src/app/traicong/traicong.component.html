@@ -1,0 +1,36 @@
+<div class="container-fluid page">
+    <div class="d-flex page__box p-3 mt-2">Liste des congés</div>
+    <div class="page__content shadow p-3 position-relative">
+      <div class="example-container mat-elevation-z8">
+        <table class="table" >
+          <thead>
+              <tr>
+                  <th></th>
+                  <th scope="col">nom d'emp </th>
+                  <th scope="col">date de demande de congé</th>
+                
+                  <th scope="col">type </th>
+                  
+                  <th scope="col">reponse </th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let conge of conges" >
+              
+                  <th scope="row"></th>
+                  <td >{{ conge.nameemp}}  {{ conge.lastnameemp}}</td>
+                  <td>{{  conge.datedemandecong| date: "dd MMMM yyyy" }}</td>
+                
+                  <td>{{ conge.nametype }}</td>
+                
+                  <td>{{ conge.namereponse }}</td>
+                  <td ><button mat-raised-button #btn1    (click)="changeData(conge.id)" (click)="toggle(conge)"  (click)="openDialog()"  id="btn1" type="submit" class="btn btn-info">repondre</button></td>
+              
+              </tr>
+          </tbody>
+      </table>
+        
+      </div>
+    </div>
+  </div>
+  

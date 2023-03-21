@@ -1,0 +1,32 @@
+<div>
+    <table class="table" >
+        <thead>
+            <tr>
+                <th></th>
+                <th scope="col">nom d'emp </th>
+                <th scope="col">date de demande de congé</th>
+                <th scope="col">date debut de congé</th>
+                <th scope="col">date fin de congé</th>
+                <th scope="col">type </th>
+                <th scope="col">commentaire </th>
+                <th scope="col">nombre de jour </th>
+                <th scope="col">reponse </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let x of conge" >
+            
+                <th scope="row"></th>
+                <td >{{ x.nameemp}}  {{ x.lastnameemp}}</td>
+                <td>{{  x.datedemandecong| date: "dd MMMM yyyy" }}</td>
+                <td>{{  x.datedebutcong| date: "dd MMMM yyyy" }}</td>
+                <td>{{  x.datefincong| date: "dd MMMM yyyy" }}</td>
+                <td>{{ x.nametype }}</td>
+                <td>{{ x.comentaire }}</td>
+                <td>{{ x.nbjourcong }}</td>
+                <td>{{ x.namereponse }}</td>
+              
+            </tr>
+        </tbody>
+    </table>
+</div>

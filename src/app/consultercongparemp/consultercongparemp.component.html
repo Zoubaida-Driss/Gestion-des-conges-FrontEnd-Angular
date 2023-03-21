@@ -1,0 +1,62 @@
+<div class="container-fluid page">
+    <div class="d-flex page__box p-3 mt-2">Liste des congés par employé</div>
+    <div class="page__content shadow p-3 position-relative">
+      <div class="example-container mat-elevation-z8">
+           <label
+                    for="fname"
+                    class="col-sm-3 text-end control-label col-form-label"
+                    >employé</label>
+                  <div class="col-md-9">
+                    <select
+                      class="select2 form-select shadow-none"
+                      style="width: 50%; height: 36px"
+                      #sel="ngModel"
+                      [(ngModel)]="Id"
+                      (ngModelChange)="Id = onChange(sel)"
+                    >
+                    
+                      <option   *ngFor="let emp of employes" [selected]="Id" [value]="emp.id"     >{{ emp.nameemp}} {{ emp.lastnameemp}}</option>
+                     
+                    </select>
+                    <div *ngIf="liste.length > 0; else elseBlock">
+                      <br>
+                      <table class="table" >
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th scope="col">nom d'emp </th>
+                                <th scope="col">date de demande de congé</th>
+                                <th scope="col">date debut de congé</th>
+                                <th scope="col">date fin de congé</th>
+                                <th scope="col">type </th>
+                                <th scope="col">commentaire </th>
+                                <th scope="col">nombre de jour </th>
+                                <th scope="col">reponse </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let x of liste" >
+                          
+                              <th scope="row"></th>
+                              <td >{{ x.nameemp}}  {{ x.lastnameemp}}</td>
+                              <td>{{  x.datedemandecong| date: "dd MMMM yyyy" }}</td>
+                              <td>{{  x.datedebutcong| date: "dd MMMM yyyy" }}</td>
+                              <td>{{  x.datefincong| date: "dd MMMM yyyy" }}</td>
+                              <td>{{ x.nametype }}</td>
+                              <td>{{ x.comentaire }}</td>
+                              <td>{{ x.nbjourcong }}</td>
+                              <td>{{ x.namereponse }}</td>
+                            
+                          </tr>
+                      </tbody>
+                    </table>
+                    </div>
+                    <ng-template #elseBlock></ng-template>
+                    <div>
+                  
+                  </div>
+                  </div>
+      </div>
+    </div>
+  </div>
+  

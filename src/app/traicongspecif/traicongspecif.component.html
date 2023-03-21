@@ -1,0 +1,10 @@
+<div >
+    <div>
+        <p>Décision</p>
+    </div>
+    <div   >
+        <div  class="row mb-3 " *ngFor="let rep of reponses" >
+            <button class="col-md-6" [(ngModel)]="rep.id" value="{{ rep.id}}" *ngIf="rep.id > 1; "   (click)="getidbutton(button.value)" (click)="updatereponse()" #button class="btn btn-success btn-sm text-white" >{{ rep.namereponse}}</button></div>
+       
+    </div>
+</div>
